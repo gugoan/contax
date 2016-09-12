@@ -2,7 +2,7 @@ TODO
 ============================
 
 
-exibition name
+name (exibition)
 fullname
 celphone
 phone
@@ -13,10 +13,11 @@ facebookpage
 twitterpage
 googlepluspage
 description
-observation
 avatar
+rating (1 - 10)
+category_id
+created
+updated
+
 unlimited photos
 unlimited attachments
-
-rating 1-10
-category_id

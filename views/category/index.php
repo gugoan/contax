@@ -3,9 +3,6 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\CategorySearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Categories');
 $this->params['breadcrumbs'][] = $this->title;
@@ -23,11 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             'name:ntext',
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

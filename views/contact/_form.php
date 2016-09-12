@@ -2,15 +2,16 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use app\models\Category;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Contact */
-/* @var $form yii\widgets\ActiveForm */
 ?>
 
 <div class="contact-form">
 
     <?php $form = ActiveForm::begin(); ?>
+
+    <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map(Category::find()->orderBy("name ASC")->all(), 'id', 'name'),['prompt'=>'-- select --'])  ?>
 
     <?= $form->field($model, 'shortname')->textarea(['rows' => 6]) ?>
 
@@ -35,8 +36,6 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'avatar')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'category_id')->textInput() ?>
 
     <?= $form->field($model, 'rating')->textInput() ?>
 
