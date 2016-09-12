@@ -13,29 +13,29 @@ use app\models\Category;
 
     <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map(Category::find()->orderBy("name ASC")->all(), 'id', 'name'),['prompt'=>'-- select --'])  ?>
 
-    <?= $form->field($model, 'shortname')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'shortname')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'fullname')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'fullname')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'celphone')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'celphone')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'phone')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'phone')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'mail')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'mail')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'website')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'website')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'blog')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'blog')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'facebookpage')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'facebookpage')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'twitterpage')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'twitterpage')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'googlepluspage')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'googlepluspage')->textInput(['maxlength' => 45]) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'avatar')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'avatar')->textInput(['maxlength' => 45]) ?>
 
     <?= $form->field($model, 'rating')->textInput() ?>
 

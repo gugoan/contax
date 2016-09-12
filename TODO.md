@@ -1,7 +1,8 @@
 TODO
 ============================
 
-
+contact
+---------------
 name (exibition)
 fullname
 celphone
@@ -21,3 +22,14 @@ updated
 
 unlimited photos
 unlimited attachments
+
+category
+---------------
+id
+name
+color
+
+option
+---------------
+theme
+language
