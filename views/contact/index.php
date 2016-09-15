@@ -3,27 +3,25 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\ContactSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Contacts');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="contact-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1>
+    <span>
+    <?= Html::encode($this->title) ?></span>
+    <?= Html::a('<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>', ['create'], ['class'=>'btn btn-primary btn-lg grid-button pull-right']) ?>
+    </h1>
+    <hr/>
+
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Contact'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
     <?php Pjax::begin(); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'shortname:ntext',

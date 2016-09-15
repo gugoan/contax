@@ -16,7 +16,7 @@ class Contact extends \yii\db\ActiveRecord
         return [
             [['shortname', 'category_id', 'rating'], 'required'],
             [['shortname', 'fullname', 'celphone', 'phone', 'mail', 'website', 'blog', 'facebookpage', 'twitterpage', 'googlepluspage', 'description', 'avatar'], 'string'],
-            [['category_id', 'rating'], 'integer'],
+            [['category_id', 'rating','favorite'], 'integer'],
         ];
     }
 
@@ -38,6 +38,7 @@ class Contact extends \yii\db\ActiveRecord
             'avatar' => Yii::t('app', 'Avatar'),
             'category_id' => Yii::t('app', 'Category'),
             'rating' => Yii::t('app', 'Rating'),
+            'favorite' => Yii::t('app', 'Favorite'),
         ];
     }
 

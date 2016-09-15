@@ -3,9 +3,6 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Contact */
-
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Contacts'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
@@ -43,6 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'avatar:ntext',
             'category_id',
             'rating',
+            'favorite',
         ],
     ]) ?>
 

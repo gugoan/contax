@@ -12,7 +12,7 @@ class ContactSearch extends Contact
     public function rules()
     {
         return [
-            [['id', 'category_id', 'rating'], 'integer'],
+            [['id', 'category_id', 'rating','favorite'], 'integer'],
             [['shortname', 'fullname', 'celphone', 'phone', 'mail', 'website', 'blog', 'facebookpage', 'twitterpage', 'googlepluspage', 'description', 'avatar'], 'safe'],
         ];
     }
@@ -46,6 +46,7 @@ class ContactSearch extends Contact
             'id' => $this->id,
             'category_id' => $this->category_id,
             'rating' => $this->rating,
+            'favorite' => $this->favorite,
         ]);
 
         $query->andFilterWhere(['like', 'shortname', $this->shortname])
