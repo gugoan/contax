@@ -12,35 +12,38 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1>
     <span>
     <?= Html::encode($this->title) ?></span>
-    <?= Html::a('<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>', ['create'], ['class'=>'btn btn-primary btn-lg grid-button pull-right']) ?>
+    <?= Html::a('<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ', ['create'], ['class'=>'btn btn-primary btn-lg grid-button pull-right', 'style' => 'margin-right: 5px;']) ?> 
+    <button class="btn btn-primary btn-lg grid-button pull-right" style='margin-right: 5px;' type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+</button>
     </h1>
     <hr/>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <div class="collapse" id="collapseExample">
+      <div class="well">
+        <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+      </div>
+    </div>    
 
     <?php Pjax::begin(); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-
-            'id',
+        'tableOptions' => ['class'=>'table table-striped table-hover'],
+        'rowOptions'   => function ($model, $index, $widget, $grid) {
+                return [
+                    'id' => $model['id'], 
+                    'onclick' => 'location.href="'
+                        . Yii::$app->urlManager->createUrl('contact/') 
+                        . '/"+(this.id);',
+                    'style' => "cursor: pointer",
+                ];
+        },         
+        'columns' => [
             'shortname:ntext',
-            'fullname:ntext',
             'celphone:ntext',
-            'phone:ntext',
-            // 'mail:ntext',
-            // 'website:ntext',
-            // 'blog:ntext',
-            // 'facebookpage:ntext',
-            // 'twitterpage:ntext',
-            // 'googlepluspage:ntext',
-            // 'description:ntext',
-            // 'avatar:ntext',
-            // 'category_id',
-            // 'rating',
-
-            ['class' => 'yii\grid\ActionColumn'],
         ],
+        
     ]); ?>
     <?php Pjax::end(); ?>
 </div>

@@ -3,16 +3,16 @@
 use yii\helpers\Html;
 
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Contact */
-
 $this->title = Yii::t('app', 'Create Contact');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Contacts'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="contact-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<h1>
+    <span>
+    <?= Html::encode($this->title) ?></span>
+    <?= Html::a('<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> ', ['index'], ['class'=>'btn btn-primary btn-lg grid-button pull-right', 'style' => 'margin-right: 5px;']) ?>
+    </h1>
+    <hr/>
 
     <?= $this->render('_form', [
         'model' => $model,

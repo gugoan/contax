@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d1a339055eda9633126c79849a3d46d0",
-    "content-hash": "a0091993e4e751142629488a2d96b1da",
+    "hash": "82b0c0d025d9ff6209332d9636c7e5fa",
+    "content-hash": "0e25afadb9fc72bf4b09ffa5dcbe1df8",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -160,6 +160,55 @@
                     "package.json"
                 ]
             }
+        },
+        {
+            "name": "bower-asset/raty",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wbotelhos/raty.git",
+                "reference": "a5171422fe7e8655df1cf5c22603af8c96ed8f56"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wbotelhos/raty/zipball/a5171422fe7e8655df1cf5c22603af8c96ed8f56",
+                "reference": "a5171422fe7e8655df1cf5c22603af8c96ed8f56",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": "~2"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "lib/jquery.raty.js",
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "spec",
+                    "vendor"
+                ],
+                "branch-alias": {
+                    "dev-master": "2.7.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "jQuery Raty - A Star Rating Plugin",
+            "keywords": [
+                "classificacao",
+                "classificar",
+                "javascript",
+                "jquery",
+                "library",
+                "plugin",
+                "rating",
+                "raty",
+                "star",
+                "staring",
+                "votar",
+                "voto"
+            ]
         },
         {
             "name": "bower-asset/yii2-pjax",
@@ -351,6 +400,47 @@
                 "mailer"
             ],
             "time": "2016-09-07 22:19:22"
+        },
+        {
+            "name": "yii2mod/yii2-star-rating",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yii2mod/yii2-star-rating.git",
+                "reference": "6b7a1be803e83939bdd5450bbf69ebe4d530828b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yii2mod/yii2-star-rating/zipball/6b7a1be803e83939bdd5450bbf69ebe4d530828b",
+                "reference": "6b7a1be803e83939bdd5450bbf69ebe4d530828b",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/raty": "*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "yii2mod\\rating\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Igor Chepurnoy",
+                    "email": "igorzfort@gmail.com"
+                }
+            ],
+            "description": "Star rating widget based on jQuery Raty https://github.com/wbotelhos/raty",
+            "keywords": [
+                "module",
+                "yii2"
+            ],
+            "time": "2016-05-20 17:05:44"
         },
         {
             "name": "yiisoft/yii2",

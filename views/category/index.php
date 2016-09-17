@@ -9,20 +9,29 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="category-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <h1>
+    <span>
+    <?= Html::encode($this->title) ?></span>
+    <?= Html::a('<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>', ['create'], ['class'=>'btn btn-primary btn-lg grid-button pull-right']) ?>
+    </h1>
+    <hr/>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Category'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
     <?php Pjax::begin(); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'rowOptions'   => function ($model, $index, $widget, $grid) {
+                return [
+                    'id' => $model['id'], 
+                    'onclick' => 'location.href="'
+                        . Yii::$app->urlManager->createUrl('category/update') 
+                        . '&id="+(this.id);',
+                    'style' => "cursor: pointer",
+                ];
+        },         
         'columns' => [
-            'id',
             'name:ntext',
-            ['class' => 'yii\grid\ActionColumn'],
+        //['class' => 'yii\grid\ActionColumn']
         ],
     ]); ?>
     <?php Pjax::end(); ?>

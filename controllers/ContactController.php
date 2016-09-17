@@ -58,7 +58,8 @@ class ContactController extends Controller
         $model = new Contact();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+                Yii::$app->session->setFlash("Contact-success", "Contato incluída com sucesso!");
+                return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,

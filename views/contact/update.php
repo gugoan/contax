@@ -2,9 +2,6 @@
 
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Contact */
-
 $this->title = Yii::t('app', 'Update {modelClass}: ', [
     'modelClass' => 'Contact',
 ]) . $model->id;
