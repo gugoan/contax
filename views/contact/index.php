@@ -34,11 +34,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 return [
                     'id' => $model['id'], 
                     'onclick' => 'location.href="'
-                        . Yii::$app->urlManager->createUrl('contact/') 
-                        . '/"+(this.id);',
+                        . Yii::$app->urlManager->createUrl('contact/update') 
+                        . '&id="+(this.id);',
                     'style' => "cursor: pointer",
                 ];
-        },         
+        },        
         'columns' => [
             'shortname:ntext',
             'celphone:ntext',

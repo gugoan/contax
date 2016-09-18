@@ -14,7 +14,7 @@ class Contact extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['shortname', 'category_id', 'rating'], 'required'],
+            [['shortname', 'celphone', 'category_id', 'rating'], 'required'],
             [['shortname', 'fullname', 'celphone', 'phone', 'mail', 'website', 'blog', 'facebookpage', 'twitterpage', 'googlepluspage', 'description', 'avatar'], 'string'],
             [['category_id', 'rating','favorite'], 'integer'],
         ];
