@@ -15,9 +15,22 @@ use app\models\Category;
 
     <?= $form->field($model, 'shortname')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'fullname')->textInput(['maxlength' => 45]) ?>
-
     <?= $form->field($model, 'celphone')->textInput(['maxlength' => 45]) ?>
+
+    <?php
+   echo $form->field($model, 'rating')->widget(\yii2mod\rating\StarRating::className(), [
+                       'options' => [
+                           // options
+                       ],
+                       'clientOptions' => [
+                           'numberMax' => 10,
+                           'number' => 10,
+                           'starType' => 'img', 
+                       ]
+                   ]); 
+    ?> 
+
+        <?= $form->field($model, 'fullname')->textInput(['maxlength' => 45]) ?>   
 
     <?= $form->field($model, 'phone')->textInput(['maxlength' => 45]) ?>
 
@@ -37,18 +50,7 @@ use app\models\Category;
 
     <?= $form->field($model, 'avatar')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'rating')->textInput() ?>
 
-    <?php
-   echo $form->field($model, 'rating')->widget(\yii2mod\rating\StarRating::className(), [
-                       'options' => [
-                           // Your additional tag options
-                       ],
-                       'clientOptions' => [
-                           // Your client options
-                       ]
-                   ]); 
-    ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
