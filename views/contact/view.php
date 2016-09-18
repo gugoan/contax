@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
-$this->title = $model->shortname;
+$this->title = $model->shortname . " #" . $model->id;
 ?>
 <div class="contact-view">
 
@@ -23,24 +23,20 @@ $this->title = $model->shortname;
     </h1>
     <hr/>
 
-    <?= DetailView::widget([
+    <div class="row">
+      <div class="col-md-6">
+
+<?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+            [
+            'attribute'=>'avatar',
+            'value' => $model->avatar == '' ? Yii::$app->params['uploadUrl'].'default.jpg' : Yii::$app->params['uploadUrl'].$model->avatar,            
+            'format' => ['image',['width'=>'100','height'=>'200', 'class'=>'img-thumbnail']],
+            ],
             'category.name',
             'shortname:ntext',
-            'fullname:ntext',
             'celphone:ntext',
-            'phone:ntext',
-            'mail:ntext',
-            'website:ntext',
-            'blog:ntext',
-            'facebookpage:ntext',
-            'twitterpage:ntext',
-            'googlepluspage:ntext',
-            //'description:ntext',
-            //'avatar:ntext',
-            //'rating',
             [
              'attribute' => 'rating',
              'format' => 'raw',
@@ -57,9 +53,33 @@ $this->title = $model->shortname;
             [
              'attribute' => 'favorite',
              'format' => 'raw',
-             'value' => $model->favorite == 1 ? '<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>' : '<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>',
+             'value' => $model->favorite == 1 ? '<span style="color:red;" class="glyphicon glyphicon-heart" aria-hidden="true"></span>' : '<span style="color:gray;" class="glyphicon glyphicon-heart" aria-hidden="true"></span>',
             ],
         ],
     ]) ?>
+
+      </div>
+      <div class="col-md-6">
+
+<?= DetailView::widget([
+        'model' => $model,
+        'formatter' => ['class' => 'yii\i18n\Formatter','nullDisplay' => ''],
+        'attributes' => [
+            'fullname:ntext',
+            'phone:ntext',
+            'mail:ntext',
+            'website:ntext',
+            'blog:ntext',
+            'facebookpage:ntext',
+            'twitterpage:ntext',
+            'googlepluspage:ntext',
+            //'description:ntext',
+        ],
+    ]) ?>
+
+      </div>
+    </div>    
+
+    
 
 </div>

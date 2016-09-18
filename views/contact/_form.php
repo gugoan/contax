@@ -10,7 +10,12 @@ use yii\widgets\MaskedInput;
 
 <div class="contact-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'id' => 'contactform',
+        'options' => [
+            'enctype'=>'multipart/form-data',
+            ],
+    ]); ?>
 
     <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map(Category::find()->orderBy("name ASC")->all(), 'id', 'name'),['prompt'=>'-- select --'])  ?>
 
@@ -32,7 +37,7 @@ use yii\widgets\MaskedInput;
                    ]); 
     ?>
 
-    <?= $form->field($model, 'avatar')->textInput(['maxlength' => 45]) ?>  
+    <?= $form->field($model, 'file')->fileInput() ?>
 
     <div class="collapse" id="collapseExample">
       <div class="well">

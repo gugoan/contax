@@ -3,9 +3,14 @@
 namespace app\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 class Contact extends \yii\db\ActiveRecord
 {
+
+    public $file;
+    public $filename; 
+
     public static function tableName()
     {
         return 'contact';
@@ -17,6 +22,8 @@ class Contact extends \yii\db\ActiveRecord
             [['shortname', 'celphone', 'category_id', 'rating'], 'required'],
             [['shortname', 'fullname', 'celphone', 'phone', 'mail', 'website', 'blog', 'facebookpage', 'twitterpage', 'googlepluspage', 'description', 'avatar'], 'string'],
             [['category_id', 'rating','favorite'], 'integer'],
+            [['avatar', 'file', 'filename'], 'safe'],
+            [['file'], 'file', 'extensions'=>'jpg, png', 'maxSize' => 1024 * 1024 * 2],
         ];
     }
 
@@ -41,6 +48,47 @@ class Contact extends \yii\db\ActiveRecord
             'favorite' => Yii::t('app', 'Favorite'),
         ];
     }
+
+    public function getImageFile()
+    {
+        return isset($this->avatar) ? Yii::$app->params['uploadPath'] . $this->avatar : null;
+    }
+    public function getImageUrl()
+    {
+        $avatar = isset($this->avatar) ? $this->avatar : 'default-avatar.png';
+        return Yii::$app->params['uploadUrl'] . $avatar;
+    }
+    public function uploadImage() {
+        $file = UploadedFile::getInstance($this, 'file');
+ 
+        if (empty($file)) {
+            return false;
+        }
+ 
+        $this->filename = $file->name;
+        $ext = end((explode(".", $file->name)));
+
+        $this->avatar = Yii::$app->security->generateRandomString().".{$ext}";
+ 
+        return $file;
+    }
+    public function deleteImage() {
+        $file = $this->getImageFile();
+ 
+        if (empty($file) || !file_exists($file)) {
+            return false;
+        }
+
+        if (!unlink($file)) {
+            return false;
+        }
+
+        $this->avatar = null;
+        $this->filename = null;
+ 
+        return true;
+    }
+
 
     public function getCategory()
     {
