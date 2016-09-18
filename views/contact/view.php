@@ -48,14 +48,16 @@ $this->title = $model->shortname;
                        'name' => "rating",
                        'value' => $model->rating,
                        'clientOptions' => [
-                           // Your client options
+                           'numberMax' => 10,
+                           'number' => 10,
+                           'readOnly' => true,
                        ]
                  ]),
             ],            
             [
              'attribute' => 'favorite',
              'format' => 'raw',
-             'value' => $model->favorite == 1 ? '<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>' : null,
+             'value' => $model->favorite == 1 ? '<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>' : '<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>',
             ],
         ],
     ]) ?>

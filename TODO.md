@@ -3,6 +3,7 @@ TODO
 
 contact
 ---------------
+category_id
 name (exibition)
 fullname
 celphone (unique)
@@ -17,10 +18,9 @@ description
 avatar
 rating (1 - 10)
 favorite
-category_id
 created
 updated
-fav
+favorite
 
 unlimited photos
 unlimited attachments
@@ -31,12 +31,7 @@ id
 name
 color
 
-option
----------------
-theme
-language
-
-Config Page
+Option
 ---------------
 language
 theme
