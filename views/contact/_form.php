@@ -30,11 +30,15 @@ use yii\widgets\MaskedInput;
                            'number' => 10,
                        ]
                    ]); 
-    ?> 
+    ?>
 
-        <?= $form->field($model, 'fullname')->textInput(['maxlength' => 45]) ?>   
+    <?= $form->field($model, 'avatar')->textInput(['maxlength' => 45]) ?>    
 
-    <?= $form->field($model, 'phone')->textInput(['maxlength' => 45]) ?>
+    <?= $form->field($model, 'fullname')->textInput(['maxlength' => 45]) ?>   
+
+    <?= $form->field($model, 'phone')->widget(\yii\widgets\MaskedInput::className(), [
+        'mask' => '(99)999999999',
+    ]) ?>
 
     <?= $form->field($model, 'mail')->textInput(['maxlength' => 45]) ?>
 
@@ -49,10 +53,6 @@ use yii\widgets\MaskedInput;
     <?= $form->field($model, 'googlepluspage')->textInput(['maxlength' => 45]) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'avatar')->textInput(['maxlength' => 45]) ?>
-
-
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
