@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use app\models\Category;
+use yii\widgets\MaskedInput;
 
 ?>
 
@@ -15,7 +16,9 @@ use app\models\Category;
 
     <?= $form->field($model, 'shortname')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'celphone')->textInput(['maxlength' => 45]) ?>
+    <?= $form->field($model, 'celphone')->widget(\yii\widgets\MaskedInput::className(), [
+        'mask' => '(99)999999999',
+    ]) ?>
 
     <?php
    echo $form->field($model, 'rating')->widget(\yii2mod\rating\StarRating::className(), [
@@ -25,7 +28,6 @@ use app\models\Category;
                        'clientOptions' => [
                            'numberMax' => 10,
                            'number' => 10,
-                           'starType' => 'img', 
                        ]
                    ]); 
     ?> 
