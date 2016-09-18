@@ -20,6 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'tableOptions' => ['class'=>'table table-striped table-hover'],
         'rowOptions'   => function ($model, $index, $widget, $grid) {
                 return [
                     'id' => $model['id'], 

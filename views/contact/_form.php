@@ -32,8 +32,10 @@ use yii\widgets\MaskedInput;
                    ]); 
     ?>
 
-    <?= $form->field($model, 'avatar')->textInput(['maxlength' => 45]) ?>    
+    <?= $form->field($model, 'avatar')->textInput(['maxlength' => 45]) ?>  
 
+    <div class="collapse" id="collapseExample">
+      <div class="well">
     <?= $form->field($model, 'fullname')->textInput(['maxlength' => 45]) ?>   
 
     <?= $form->field($model, 'phone')->widget(\yii\widgets\MaskedInput::className(), [
@@ -53,9 +55,15 @@ use yii\widgets\MaskedInput;
     <?= $form->field($model, 'googlepluspage')->textInput(['maxlength' => 45]) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+      </div>
+    </div>      
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  Link with href
+</a>
     </div>
 
     <?php ActiveForm::end(); ?>
