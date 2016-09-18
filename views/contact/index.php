@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 return [
                     'id' => $model['id'], 
                     'onclick' => 'location.href="'
-                        . Yii::$app->urlManager->createUrl('contact/update') 
+                        . Yii::$app->urlManager->createUrl('contact/view') 
                         . '&id="+(this.id);',
                     'style' => "cursor: pointer",
                 ];
