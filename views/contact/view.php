@@ -11,8 +11,9 @@ $this->title = $model->shortname . " #" . $model->id;
     <span>
     <?= Html::encode($this->title) ?></span>
         <p class="pull-right">
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+        <?= Html::a('<span class="glyphicon glyphicon-camera" aria-hidden="true"></span> ' . Yii::t('app', 'Images'), ['image/create', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> ' . Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> ' .Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
@@ -80,6 +81,18 @@ $this->title = $model->shortname . " #" . $model->id;
       </div>
     </div>    
 
-    
+<div class="panel panel-default">
+  <div class="panel-heading">Images</div>
+  <div class="panel-body">
+    Panel content
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Info</div>
+  <div class="panel-body">
+    Panel content
+  </div>
+</div>
 
 </div>

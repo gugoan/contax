@@ -93,5 +93,10 @@ class Contact extends \yii\db\ActiveRecord
     public function getCategory()
     {
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
-    }    
+    }
+
+    public function getImage()
+    {
+        return $this->hasMany(Image::className(), ['contact_id' => 'id']);
+    }
 }
