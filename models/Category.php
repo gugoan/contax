@@ -15,7 +15,7 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['name'], 'string'],
+            [['name','color'], 'string'],
         ];
     }
 
@@ -24,6 +24,7 @@ class Category extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', 'Category'),
+            'color' => Yii::t('app', 'Color'),
         ];
     }
 }

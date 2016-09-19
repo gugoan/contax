@@ -15,6 +15,10 @@ Thumbs.db
 # dev files
 /dev
 
+# attachments and assets
+/web/avatar/*
+/web/image/*
+
 # composer vendor dir
 /vendor
 
