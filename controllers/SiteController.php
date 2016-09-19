@@ -31,7 +31,25 @@ class SiteController extends Controller
                 ],
             ],
         ];
-    } 
+    }
+
+    public function bootstrap($app)
+    {
+        if(!Yii::$app->user->isGuest) {
+            Yii::$app->language = 'pt';
+            //Yii::$app->defaultRoute = Yii::$app->user->identity->profile->startpage;
+            //Yii::$app->defaultRoute = 'cashbook/overview';
+            //Yii::$app->user->getIdentity()->language = Yii::$app->language;
+            // Yii::$app->formatter->defaultTimeZone = 'Europe/Malta';
+            // Yii::$app->formatter->timeZone = 'Europe/Malta';
+            // Yii::$app->formatter->dateFormat = 'php:d/m/Y';
+            // Yii::$app->formatter->datetimeFormat = 'php:d/m/Y H:i:s';
+            // Yii::$app->formatter->currencyCode = 'EUR';
+            // Yii::$app->formatter->decimalSeparator = ',';
+        }else{
+            Yii::$app->language = Yii::$app->request->getPreferredLanguage($this->supportedLanguages);
+        }
+    }    
 
     public function actions()
     {
