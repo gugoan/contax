@@ -33,9 +33,9 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Contact', 'url' => ['/contact/index'],'visible' => !Yii::$app->user->isGuest],
-            ['label' => 'Category', 'url' => ['/category/index'],'visible' => !Yii::$app->user->isGuest],
-            ['label' => 'About', 'url' => ['/site/about']],
+            ['label' => Yii::t('app', 'Contact'),  'url' => ['/contact/index'],'visible' => !Yii::$app->user->isGuest],
+            ['label' => Yii::t('app', 'Category'), 'url' => ['/category/index'],'visible' => !Yii::$app->user->isGuest],
+            ['label' => Yii::t('app', 'Options'),    'url' => ['/site/about'],'visible' => !Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
