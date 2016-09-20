@@ -64,9 +64,9 @@ use yii\widgets\MaskedInput;
     </div>      
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? '<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>' : '<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>', ['class' => $model->isNewRecord ? 'btn btn-primary btn-lg grid-button' : 'btn btn-primary btn-lg grid-button']) ?>
 
-        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">More info</a>
+        <a class="btn btn-primary btn-lg grid-button" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">More info</a>
     </div>
 
     <?php ActiveForm::end(); ?>
