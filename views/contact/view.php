@@ -74,25 +74,17 @@ $this->title = $model->shortname . " #" . $model->id;
             'facebookpage:ntext',
             'twitterpage:ntext',
             'googlepluspage:ntext',
-            //'description:ntext',
         ],
     ]) ?>
 
       </div>
     </div>    
 
-<div class="panel panel-default">
-  <div class="panel-heading">Images</div>
-  <div class="panel-body">
-    Panel content
-  </div>
-</div>
-
-<div class="panel panel-default">
-  <div class="panel-heading">Info</div>
-  <div class="panel-body">
-    Panel content
-  </div>
-</div>
+    <div class="panel panel-default">
+      <div class="panel-heading"><strong><?= Yii::t('app', 'Description')?></strong></div>
+      <div class="panel-body">
+        <?= $model->description ?>
+      </div>
+    </div>
 
 </div>

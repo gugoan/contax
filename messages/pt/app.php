@@ -33,7 +33,7 @@ return [
     'Facebookpage' => 'Facebook',
     'Favorite' => 'Favorito',
     'Fullname' => 'Nome Completo',
-    'Googlepluspage' => '',
+    'Googlepluspage' => 'Google+',
     'ID' => 'ID',
     'Login' => 'Usuário',
     'Login to access the System' => 'Autentique para acessar o sistema',
