@@ -36,7 +36,7 @@ return [
     'Googlepluspage' => 'Google+',
     'ID' => 'ID',
     'Login' => 'Usuário',
-    'Login to access the System' => 'Autentique para acessar o sistema',
+    'Login to access the System' => 'Autenticação',
     'Mail' => 'E-mail',
     'Name' => 'Nome',
     'Password' => 'Senha',
