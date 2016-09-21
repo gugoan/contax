@@ -24,7 +24,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Contax',
+        'brandLabel' => '<span class="glyphicon glyphicon-book" aria-hidden="true"></span> ' . 'Contax',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -32,17 +32,18 @@ AppAsset::register($this);
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
+        'encodeLabels' => false,
         'items' => [
-            ['label' => Yii::t('app', 'Contact'),  'url' => ['/contact/index'],'visible' => !Yii::$app->user->isGuest],
-            ['label' => Yii::t('app', 'Category'), 'url' => ['/category/index'],'visible' => !Yii::$app->user->isGuest],
-            ['label' => Yii::t('app', 'Options'),    'url' => ['/site/about'],'visible' => !Yii::$app->user->isGuest],
+            ['label' => '<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> ' . Yii::t('app', 'Contact'),  'url' => ['/contact/index'],'visible' => !Yii::$app->user->isGuest],
+            ['label' => '<span class="glyphicon glyphicon-flag" aria-hidden="true"></span> ' . Yii::t('app', 'Category'), 'url' => ['/category/index'],'visible' => !Yii::$app->user->isGuest],
+            ['label' => '<span class="glyphicon glyphicon-cog" aria-hidden="true"></span> ' . Yii::t('app', 'Options'),    'url' => ['/site/about'],'visible' => !Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
+                ['label' => '<span class="glyphicon glyphicon-lock" aria-hidden="true"></span> ' . 'Login', 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    '<span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-link']
                 )
                 . Html::endForm()

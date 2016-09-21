@@ -19,7 +19,7 @@ use kartik\color\ColorInput;
     ?>    
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>' : '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>', ['class' => $model->isNewRecord ? 'btn btn-primary btn-lg grid-button' : 'btn btn-primary btn-lg grid-button']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -2,16 +2,15 @@
 
 use yii\helpers\Html;
 
-$this->title = Yii::t('app', 'Update {modelClass}: ', [
-    'modelClass' => 'Contact',
-]) . $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Contacts'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->title = $model->id;
 ?>
 <div class="contact-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><span>
+    <?= Html::encode($this->title) ?></span>
+    <?= Html::a('<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> ', ['index'], ['class'=>'btn btn-primary btn-lg grid-button pull-right', 'style' => 'margin-right: 5px;']) ?>
+    </h1>
+    <hr/>
 
     <?= $this->render('_form', [
         'model' => $model,

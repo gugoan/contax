@@ -1,19 +1,12 @@
-# phpstorm project files
-.idea
-
-# netbeans project files
-nbproject
-
-# zend studio for eclipse project files
-.buildpath
-.project
-.settings
 
 # windows thumbnail cache
 Thumbs.db
 
 # dev files
 /dev
+
+# database files
+/database/*
 
 # attachments and assets
 /web/avatar/*
@@ -24,14 +17,6 @@ Thumbs.db
 
 # composer itself is not needed
 composer.phar
-
-# Mac DS_Store Files
-.DS_Store
-
-# phpunit itself is not needed
-phpunit.phar
-# local phpunit config
-/phpunit.xml
 
 tests/_output/*
 tests/_support/_generated

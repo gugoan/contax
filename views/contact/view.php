@@ -11,10 +11,11 @@ $this->title = $model->shortname . " #" . $model->id;
     <span>
     <?= Html::encode($this->title) ?></span>
         <p class="pull-right">
-        <?= Html::a('<span class="glyphicon glyphicon-camera" aria-hidden="true"></span> ' . Yii::t('app', 'Images'), ['image/create', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> ' . Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> ' .Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
+        <?= Html::a('<span class="glyphicon glyphicon-camera" aria-hidden="true"></span>', ['image/create', 'id' => $model->id], ['class' => 'btn btn-success btn-lg grid-button pull-right', 'style' => 'margin-right: 5px;']) ?>
+        <?= Html::a('<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>', ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-lg grid-button pull-right', 'style' => 'margin-right: 5px;']) ?>
+        <?= Html::a('<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>', ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger btn-lg grid-button pull-right',
+            'style' => 'margin-right: 5px;',
             'data' => [
                 'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
                 'method' => 'post',
@@ -66,14 +67,46 @@ $this->title = $model->shortname . " #" . $model->id;
         'model' => $model,
         'formatter' => ['class' => 'yii\i18n\Formatter','nullDisplay' => ''],
         'attributes' => [
-            'fullname:ntext',
-            'phone:ntext',
-            'mail:ntext',
-            'website:ntext',
-            'blog:ntext',
-            'facebookpage:ntext',
-            'twitterpage:ntext',
-            'googlepluspage:ntext',
+            [
+                'attribute' => 'fullname',  
+                'format' => 'raw',
+                'value' => $model->fullname == '' ?  '<span class="not-set">(não informado)</span>' : $model->fullname,
+            ],
+            [
+                'attribute' => 'phone',  
+                'format' => 'raw',
+                'value' => $model->phone == '' ?  '<span class="not-set">(não informado)</span>' : $model->phone,
+            ], 
+            [
+                'attribute' => 'mail',  
+                'format' => 'raw',
+                'value' => $model->mail == '' ?  '<span class="not-set">(não informado)</span>' : $model->mail,
+            ], 
+            [
+                'attribute' => 'website',  
+                'format' => 'raw',
+                'value' => $model->website == '' ?  '<span class="not-set">(não informado)</span>' : $model->website,
+            ], 
+            [
+                'attribute' => 'blog',  
+                'format' => 'raw',
+                'value' => $model->blog == '' ?  '<span class="not-set">(não informado)</span>' : $model->blog,
+            ],
+            [
+                'attribute' => 'facebookpage',  
+                'format' => 'raw',
+                'value' => $model->facebookpage == '' ?  '<span class="not-set">(não informado)</span>' : $model->facebookpage,
+            ],
+            [
+                'attribute' => 'twitterpage',  
+                'format' => 'raw',
+                'value' => $model->twitterpage == '' ?  '<span class="not-set">(não informado)</span>' : $model->twitterpage,
+            ],
+            [
+                'attribute' => 'googlepluspage',  
+                'format' => 'raw',
+                'value' => $model->googlepluspage == '' ?  '<span class="not-set">(não informado)</span>' : $model->googlepluspage,
+            ], 
         ],
     ]) ?>
 
@@ -83,7 +116,7 @@ $this->title = $model->shortname . " #" . $model->id;
     <div class="panel panel-default">
       <div class="panel-heading"><strong><?= Yii::t('app', 'Description')?></strong></div>
       <div class="panel-body">
-        <?= $model->description ?>
+        <?= $model->description == '' ?  '<span class="not-set">(não informado)</span>' : $model->description?>
       </div>
     </div>
 
