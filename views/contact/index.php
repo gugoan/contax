@@ -40,8 +40,21 @@ $this->params['breadcrumbs'][] = $this->title;
                 ];
         },        
         'columns' => [
-            'shortname:ntext',
-            'celphone:ntext',
+            [
+                'attribute' => 'shortname',
+                'format' => 'html',
+                'value' => function ($model) {                      
+                      return $model->avatar == '' ? Html::img(Yii::$app->params['uploadUrl'].'default.jpg',
+                        ['width' => '50px', 'height'=>'50px', 'class' => 'img-rounded img-thumbnail']). ' '.$model->shortname : Html::img(Yii::$app->params['uploadUrl'].$model->avatar,
+                        ['width' => '50px', 'height'=>'50px', 'class' => 'img-rounded img-thumbnail']).' '.$model->shortname;
+                },
+                'contentOptions'=>['style'=>'width: 50%;text-align:left'],
+            ],        
+            [
+                'attribute' => 'celphone',
+                'format' => 'raw',
+                'contentOptions'=>['style'=>'width: 50%;text-align:left;vertical-align: middle;'],
+            ],
         ],
         
     ]); ?>
