@@ -53,7 +53,21 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'celphone',
                 'format' => 'raw',
-                'contentOptions'=>['style'=>'width: 50%;text-align:left;vertical-align: middle;'],
+                'contentOptions'=>['style'=>'width: 40%;text-align:left;vertical-align: middle;'],
+            ],
+            [
+              'class' => 'yii\grid\ActionColumn',
+              'header' => false,  
+              'contentOptions'=>['style'=>'width: 10%;text-align:right'],
+              'headerOptions' => ['class' => 'text-center'],                            
+              'template' => '{call}',
+              'buttons' => [
+                  'call' => function ($url, $model) {
+                      return Html::a('<span class="glyphicon glyphicon-earphone" ></span>', "tel:+1-303-499-7111", [
+                                  'class' => 'btn btn-default',
+                      ]);
+                  },                                                   
+                ],
             ],
         ],
         
