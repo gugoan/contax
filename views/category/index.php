@@ -32,7 +32,6 @@ $this->params['breadcrumbs'][] = $this->title;
         },         
         'columns' => [
             'name:ntext',
-        //['class' => 'yii\grid\ActionColumn']
         ],
     ]); ?>
     <?php Pjax::end(); ?>
