@@ -32,6 +32,7 @@ class Image extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'contact_id' => Yii::t('app', 'Contact ID'),
             'name' => Yii::t('app', 'Name'),
+            'file' => Yii::t('app', 'File'),
         ];
     }
 
