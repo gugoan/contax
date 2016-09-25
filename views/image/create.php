@@ -12,7 +12,14 @@ $this->title = Yii::t('app', 'Contact Images');
 	$t = Yii::$app->getRequest()->getQueryParam('id');
 	$cod = $model->id;
     $dataProvider = new SqlDataProvider([
-        'sql' => "SELECT  id, contact_id, name FROM image WHERE contact_id = $t",
+        'sql' => "SELECT  image.id, 
+            contact_id, 
+            shortname,
+            name 
+            FROM image 
+            INNER JOIN contact
+            ON image.contact_id = contact.id
+            WHERE contact_id =  $t",
         'totalCount' => 200,
         'sort' =>false,
         'key'  => 'id',
@@ -42,32 +49,29 @@ $this->title = Yii::t('app', 'Contact Images');
 <div class="panel panel-default">
   <div class="panel-heading"><?= Yii::t('app', 'Gallery')?></div>
   <div class="panel-body">
-<?php             
-$items = array();
-                $prov = $models = $dataProvider->getModels();
-                if(!empty($prov))
-                    {
-                        foreach($prov as $row)
-                        {
-                            // echo Html::a(Html::img(Yii::$app->params['uploadImage'].$row["contact_id"].'/'.$row["name"],
-                            //  ['width' => '50px']), Yii::$app->params['uploadImage'].$row["contact_id"].'/'.$row["name"], ['target' => '_blank', 'class' => 'img-thumbnail']);
-                            $items[] = [
-                                'url' => "http://localhost".Yii::$app->request->BaseUrl."/".Yii::$app->params['uploadImage'].$row["contact_id"].'/'.$row["name"],
-                                'src' => "http://localhost".Yii::$app->request->BaseUrl."/".Yii::$app->params['uploadImage'].$row["contact_id"].'/'.$row["name"],
-                                ];
-                        }   
-                    } else {
-                        //echo "<span class=\"not-set\">(não possui imagens)</span>";
-                    }
+    <?php             
+    $items = array();
+        $prov = $models = $dataProvider->getModels();
+        if(!empty($prov))
+            {
+                foreach($prov as $row)
+                {
+                $items[] = [
+                    'image' => "http://localhost".Yii::$app->request->BaseUrl."/".Yii::$app->params['uploadImage'].$row["contact_id"].'/'.$row["name"],
+                    'title' => $row["shortname"],
+                    'caption' => $row["shortname"],
+                    'size' => '1024x685',
+                    'thumb' => "http://localhost".Yii::$app->request->BaseUrl."/".Yii::$app->params['uploadImage'].$row["contact_id"].'/'.$row["name"],
+                    ];
+                }   
+            } else {
+                //echo "<span class=\"not-set\">(não possui imagens)</span>";
+            }
 
-            ?>
-<p>
-<br/>
-</p>
-
-<?= dosamigos\gallery\Gallery::widget(['items' => $items]);?>
-
+    echo \modernkernel\photoswipe\Gallery::widget([
+        'items' => $items
+    ])
+    ?>
   </div>
 </div>
-
 </div>

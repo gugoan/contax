@@ -79,7 +79,7 @@ class ImageController extends Controller
                     // ->save($path, ['quality' => 60]);                    
                 }
                 Yii::$app->session->setFlash('img-success', 'Imagem enviada com sucesso');
-                return $this->redirect(['contact/view', 'id' => $model->contact_id]);
+                return $this->redirect(['image/create', 'id' => $model->contact_id]);
             } else {
                 // error in saving model
             }

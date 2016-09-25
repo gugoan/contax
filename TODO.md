@@ -8,10 +8,6 @@ celphone (unique)
 export
 
 
-unlimited photos
-unlimited attachments
-
-
 Option
 ---------------
 language

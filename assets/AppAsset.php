@@ -20,9 +20,9 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         //'css/darkly.css',
-        //'css/paper.css',
+        'css/paper.css',
         //'css/sandstone.css',
-        'css/united.css',
+        //'css/united.css',
     ];
     public $js = [
     ];

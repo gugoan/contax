@@ -21,7 +21,7 @@
         "yii2mod/yii2-star-rating": "*",
         "kartik-v/yii2-widget-colorinput": "*",
         "fxp/composer-asset-plugin": "~1.1.1",
-        "2amigos/yii2-gallery-widget": "~1.0"
+        "modernkernel/yii2-photoswipe": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
