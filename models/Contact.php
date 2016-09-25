@@ -23,7 +23,7 @@ class Contact extends \yii\db\ActiveRecord
             [['shortname', 'fullname', 'celphone', 'phone', 'mail', 'website', 'blog', 'facebookpage', 'twitterpage', 'googlepluspage', 'description', 'avatar'], 'string'],
             [['category_id', 'rating','favorite'], 'integer'],
             [['avatar', 'file', 'filename'], 'safe'],
-            [['file'], 'file', 'extensions'=>'jpg, png', 'maxSize' => 1024 * 1024 * 2],
+            [['file'], 'file', 'extensions'=>'jpg, png, jpeg', 'maxSize' => 1024 * 1024 * 2],
         ];
     }
 
