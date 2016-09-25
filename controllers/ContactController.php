@@ -72,7 +72,7 @@ class ContactController extends Controller
                     $path = $model->getImageFile();
                     $file->saveAs($path);
                 }
-                Yii::$app->session->setFlash("Contact-success", Yii::t("app", "Contact successfully included"));
+                Yii::$app->session->setFlash("Contact-success", Yii::t('app', 'Successfully included'));
                 return $this->redirect(['index']);
             } else {
                 // error in saving model
@@ -87,20 +87,41 @@ class ContactController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash("Contact-success", Yii::t("app", "Contact successfully edited"));
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+        $oldFile = $model->getImageFile();
+        $oldavatar = $model->avatar;
+        $oldFileName = $model->filename;
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            $file = $model->uploadImage();
+ 
+            if ($file === false) {
+                $model->avatar = $oldavatar;
+                $model->filename = $oldFileName;
+            }
+ 
+            if ($model->save()) {
+                // upload only if valid uploaded file instance found
+                if ($file !== false && unlink($oldFile)) { // delete old and overwrite
+                    $path = $model->getImageFile();
+                    $file->saveAs($path);
+                }
+                Yii::$app->session->setFlash("Contact-success", Yii::t('app', 'Successfully included'));
+                return $this->redirect(['index']);
+            } else {
+                // error in saving model
+            }
         }
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
 
+        Yii::$app->session->setFlash("Contact-success", Yii::t('app', 'Successfully deleted'));
         return $this->redirect(['index']);
     }
 

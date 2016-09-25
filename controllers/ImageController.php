@@ -78,7 +78,7 @@ class ImageController extends Controller
                     // ->thumbnail(new Box(1200, 1200))
                     // ->save($path, ['quality' => 60]);                    
                 }
-                Yii::$app->session->setFlash('img-success', 'Imagem enviada com sucesso');
+                Yii::$app->session->setFlash('img-success', Yii::t('app', 'Upload successfully'));
                 return $this->redirect(['image/create', 'id' => $model->contact_id]);
             } else {
                 // error in saving model
