@@ -9,14 +9,20 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="contact-index">
 
+  <div class="row">
+    <div class="col-md-6">
+    <h1><span><?= Html::encode($this->title) ?></span></h1>
+    </div>
+    <div class="col-md-6">
     <h1>
-    <span>
-    <?= Html::encode($this->title) ?></span>
-    <?= Html::a('<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ', ['create'], ['class'=>'btn btn-primary btn-lg grid-button pull-right', 'style' => 'margin-right: 5px;']) ?> 
-    <button class="btn btn-primary btn-lg grid-button pull-right" style='margin-right: 5px;' type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-</button>
-    </h1>
+        <?= Html::a('<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ', ['create'], ['class'=>'btn btn-primary btn-lg grid-button pull-right', 'style' => 'margin-right: 5px;']) ?> 
+        <button class="btn btn-primary btn-lg grid-button pull-right" style='margin-right: 5px;' type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </button>
+      </h1>
+    </div>
+  </div>
+
     <hr/>
 
     <div class="collapse" id="collapseExample">

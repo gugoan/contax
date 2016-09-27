@@ -65,11 +65,11 @@ $this->title = Yii::t('app', 'Contact Images');
                 foreach($prov as $row)
                 {
                 $items[] = [
-                    'image' => "http://localhost".Yii::$app->request->BaseUrl."/".Yii::$app->params['uploadImage'].$row["contact_id"].'/'.$row["name"],
+                    'image' => Yii::$app->request->BaseUrl."/".Yii::$app->params['uploadImage'].$row["contact_id"].'/'.$row["name"],
                     'title' => $row["shortname"],
                     'caption' => $row["shortname"],
                     'size' => '1024x685',
-                    'thumb' => "http://localhost".Yii::$app->request->BaseUrl."/".Yii::$app->params['uploadImage'].$row["contact_id"].'/'.$row["name"],
+                    'thumb' => Yii::$app->request->BaseUrl."/".Yii::$app->params['uploadImage'].$row["contact_id"].'/'.$row["name"],
                     ];
                 }   
             } else {

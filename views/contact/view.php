@@ -7,9 +7,11 @@ $this->title = $model->shortname . " #" . $model->id;
 ?>
 <div class="contact-view">
 
-    <h1>
-    <span>
-    <?= Html::encode($this->title) ?></span>
+<div class="row">
+  <div class="col-md-6">
+  <h1><span><?= Html::encode($this->title) ?></span></h1></div>
+  <div class="col-md-6">
+      <h1>
         <p class="pull-right">
         <?= Html::a('<span class="glyphicon glyphicon-camera" aria-hidden="true"></span>', ['image/create', 'id' => $model->id], ['class' => 'btn btn-success btn-lg grid-button pull-right', 'style' => 'margin-right: 5px;']) ?>
         <?= Html::a('<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>', ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-lg grid-button pull-right', 'style' => 'margin-right: 5px;']) ?>
@@ -22,7 +24,8 @@ $this->title = $model->shortname . " #" . $model->id;
             ],
         ]) ?>
     </p>
-    </h1>
+    </h1></div>
+</div>
     <hr/>
 
     <div class="row">

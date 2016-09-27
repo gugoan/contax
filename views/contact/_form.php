@@ -63,13 +63,14 @@ use yii\widgets\MaskedInput;
 
         <?= $form->field($model, 'googlepluspage')->textInput(['maxlength' => 45]) ?>
 
+        <?= $form->field($model, 'favorite')->checkbox() ?>
+
         </div>
         <div class="col-md-6">
 
         <?= $form->field($model, 'description')->textarea(['rows' => 20]) ?>
         <hr/>
-        <?= $form->field($model, 'favorite')->checkbox() ?>
-
+        
         </div>
       </div>      
     
