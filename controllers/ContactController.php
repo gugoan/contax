@@ -102,7 +102,8 @@ class ContactController extends Controller
  
             if ($model->save()) {
                 // upload only if valid uploaded file instance found
-                if ($file !== false && unlink($oldFile)) { // delete old and overwrite
+                //if ($file !== false && unlink($oldFile)) { // delete old and overwrite
+                if ($file !== false) {
                     $path = $model->getImageFile();
                     $file->saveAs($path);
                 }

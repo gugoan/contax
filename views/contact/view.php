@@ -36,7 +36,7 @@ $this->title = $model->shortname . " #" . $model->id;
         'attributes' => [
             [
             'attribute'=>'avatar',
-            'value' => $model->avatar == '' ? Yii::$app->params['uploadUrl'].'default.jpg' : Yii::$app->params['uploadUrl'].$model->avatar,            
+            'value' => $model->avatar == '' ? Yii::$app->params['uploadUrl'].'default.png' : Yii::$app->params['uploadUrl'].$model->avatar,            
             'format' => ['image',['width'=>'100','height'=>'200', 'class'=>'img-thumbnail']],
             ],
             'category.name',

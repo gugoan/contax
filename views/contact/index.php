@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'shortname',
                 'format' => 'html',
                 'value' => function ($model) {                      
-                      return $model->avatar == '' ? Html::img(Yii::$app->params['uploadUrl'].'default.jpg',
+                      return $model->avatar == '' ? Html::img(Yii::$app->params['uploadUrl'].'default.png',
                         ['width' => '50px', 'height'=>'50px', 'class' => 'img-rounded img-thumbnail']). ' '.$model->shortname : Html::img(Yii::$app->params['uploadUrl'].$model->avatar,
                         ['width' => '50px', 'height'=>'50px', 'class' => 'img-rounded img-thumbnail']).' '.$model->shortname;
                 },
@@ -77,7 +77,7 @@ $this->params['breadcrumbs'][] = $this->title;
               'template' => '{call}',
               'buttons' => [
                   'call' => function ($url, $model) {
-                      return Html::a('<span class="glyphicon glyphicon-earphone" ></span>', "tel:+1-303-499-7111", [
+                      return Html::a('<span class="glyphicon glyphicon-earphone" ></span>', $model->celphone, [
                                   'class' => 'btn btn-default',
                       ]);
                   },                                                   
