@@ -1,7 +1,9 @@
-TODO
+DEVELOPMENT NOTES
 ============================
 
-contact
+tables and attributes:
+
+CONTACT
 ---------------
 name (exibition)
 fullname
@@ -22,21 +24,24 @@ created
 updated
 fav
 
+IMAGES
+---------------
 unlimited photos
 unlimited attachments
 
-category
+CATEGORY
 ---------------
 id
 name
 color
 
-option
+GENDER
 ---------------
-theme
-language
+id
+name
+color
 
-Config Page
+CONFIG PAGE
 ---------------
 language
 theme
