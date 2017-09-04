@@ -72,7 +72,8 @@ class CategoryController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->session->setFlash("Category-success", "Categoria alterada com sucesso!");
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -84,6 +85,7 @@ class CategoryController extends Controller
     {
         $this->findModel($id)->delete();
 
+        Yii::$app->session->setFlash("Category-success", "Categoria excluída com sucesso!");
         return $this->redirect(['index']);
     }
 
