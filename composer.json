@@ -1,7 +1,7 @@
 {
-    "name": "yiisoft/yii2-app-basic",
-    "description": "Yii 2 Basic Project Template",
-    "keywords": ["yii2", "framework", "basic", "project template"],
+    "name": "gugoan/contax",
+    "description": "A Private Phonebook Directory",
+    "keywords": ["yii2", "framework", "sqlite", "phonebook"],
     "homepage": "http://www.yiiframework.com/",
     "type": "project",
     "license": "BSD-3-Clause",
@@ -20,8 +20,10 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "yii2mod/yii2-star-rating": "*",
         "kartik-v/yii2-widget-colorinput": "*",
-        "fxp/composer-asset-plugin": "~1.1.1",
-        "modernkernel/yii2-photoswipe": "*"
+        "kartik-v/yii2-export": "@dev",
+        "kartik-v/yii2-grid": "@dev",        
+        "modernkernel/yii2-photoswipe": "*",
+        "branchonline/yii2-lightbox": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
@@ -33,13 +35,25 @@
         "codeception/specify": "~0.4.3"
     },
     "config": {
-        "process-timeout": 1800
+        "process-timeout": 1800,
+        "fxp-asset":{
+            "installer-paths": {
+                "npm-asset-library": "vendor/npm",
+                "bower-asset-library": "vendor/bower"
+            }
+        }
     },
     "scripts": {
         "post-create-project-cmd": [
             "yii\\composer\\Installer::postCreateProject"
         ]
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
     "extra": {
         "yii\\composer\\Installer::postCreateProject": {
             "setPermission": [
@@ -52,10 +66,6 @@
             "generateCookieValidationKey": [
                 "config/web.php"
             ]
-        },
-        "asset-installer-paths": {
-            "npm-asset-library": "vendor/npm",
-            "bower-asset-library": "vendor/bower"
         }
     }
 }
