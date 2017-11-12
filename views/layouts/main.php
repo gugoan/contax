@@ -61,7 +61,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; Contax <?= date('Y') ?></p>
+        <p class="pull-left">&copy; <?= Html::a('Contax', ['site/about']) ?> <?= date('Y') ?></p>
 
         <p class="pull-right">Proudly <?= Yii::powered() ?></p>
     </div>
