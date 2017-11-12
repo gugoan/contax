@@ -2,15 +2,18 @@
 
 use yii\helpers\Html;
 
-$this->title = 'About';
+$this->title = Yii::t('app', 'About');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-about">
     <h1><?= Html::encode($this->title) ?></h1>
-
+    <hr/>
+    
     <p>
-        Private Phonebook Directory:
+    A Private Phonebook Directory
     </p>
-
-    <code><?= __FILE__ ?></code>
+    <p>
+    Simple and personal storage of individuals' names, phone numbers, extensions, and other 
+    information  made with <code>Yii2</code> and <code>Sqlite</code>
+    </p>
 </div>
