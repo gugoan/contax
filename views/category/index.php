@@ -39,7 +39,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 ];
         },         
         'columns' => [
-            'name:ntext',
+            [
+                'attribute' => 'name',
+                'format' => 'raw',
+                'value' => function ($model) {                      
+                    return '<span class="glyphicon glyphicon-tag" aria-hidden="true" style="color:'. $model->color .'"></span> ' . $model->name;
+                },
+            ],
         ],
     ]); ?>
     <?php Pjax::end(); ?>

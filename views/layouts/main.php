@@ -35,7 +35,7 @@ AppAsset::register($this);
         'encodeLabels' => false,
         'items' => [
             ['label' => '<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> ' . Yii::t('app', 'Contact'),  'url' => ['/contact/index'],'visible' => !Yii::$app->user->isGuest],
-            ['label' => '<span class="glyphicon glyphicon-flag" aria-hidden="true"></span> ' . Yii::t('app', 'Category'), 'url' => ['/category/index'],'visible' => !Yii::$app->user->isGuest],
+            ['label' => '<span class="glyphicon glyphicon-tag" aria-hidden="true"></span> ' . Yii::t('app', 'Category'), 'url' => ['/category/index'],'visible' => !Yii::$app->user->isGuest],
             ['label' => '<span class="glyphicon glyphicon-cog" aria-hidden="true"></span> ' . Yii::t('app', 'Options'),    'url' => ['/site/about'],'visible' => !Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ? (
                 ['label' => '<span class="glyphicon glyphicon-lock" aria-hidden="true"></span> ' . 'Login', 'url' => ['/site/login']]
