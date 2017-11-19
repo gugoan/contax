@@ -5,9 +5,13 @@ $params = require(__DIR__ . '/params.php');
 $config = [
     'id' => 'contax',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
-    'defaultRoute' => 'contact/index',
-    'language' => 'pt-BR',    
+    'bootstrap' => [
+        'log',
+        [
+            'class' => 'app\components\Settings',
+            'supportedLanguages' => ['en', 'pt-br'],
+        ],
+    ],   
     'components' => [
         'request' => [
             'cookieValidationKey' => 'ROiRnAuB16n3lKoQcIOSKUZXca4LSY8i',

@@ -15,7 +15,7 @@ class Option extends \yii\db\ActiveRecord
     {
         return [
             [['language', 'theme', 'defaultpage'], 'required'],
-            [['language', 'theme', 'defaultpage'], 'string'],
+            [['language', 'theme', 'defaultpage'], 'safe'],
         ];
     }
 

@@ -54,12 +54,14 @@ class OptionController extends Controller
         }
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate()
     {
+        $id = 1;
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->session->setFlash("Option-success", Yii::t('app', 'Successfully saved'));
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

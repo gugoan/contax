@@ -4,8 +4,8 @@ TODO
 contact
 ---------------
 
-celphone (unique)
-export
+Export Records
+Multiple users (in database)
 
 
 Option
