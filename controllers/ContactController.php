@@ -47,6 +47,17 @@ class ContactController extends Controller
         ]);
     }
 
+    public function actionGrid()
+    {
+        $searchModel = new ContactSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('grid', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
     public function actionView($id)
     {
         return $this->render('view', [
