@@ -67,7 +67,8 @@ class Contact extends \yii\db\ActiveRecord
         }
  
         $this->filename = $file->name;
-        $ext = end((explode(".", $file->name)));
+        $tmp = explode(".", $file->name);
+        $ext = end($tmp);
 
         $this->avatar = Yii::$app->security->generateRandomString().".{$ext}";
  

@@ -19,6 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <button class="btn btn-primary btn-lg grid-button pull-right" style='margin-right: 5px;' type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
       </button>
+      <?= Html::a('<span class="glyphicon glyphicon-th" aria-hidden="true"></span> ', ['grid'], ['class'=>'btn btn-primary btn-lg grid-button pull-right', 'style' => 'margin-right: 5px;']) ?> 
       </h1>
     </div>
   </div>
