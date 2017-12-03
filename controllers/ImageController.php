@@ -24,7 +24,7 @@ class ImageController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::classname(),
-                'only'  => ['create','index','update','view'],
+                'only'  => ['*'],
                 'rules' => [
                     [
                         'allow' => true,
